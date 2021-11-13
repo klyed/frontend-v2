@@ -10,7 +10,7 @@
   "ws": "wss://graph-node.beets-ftm-node.com/ws",
   "loggingRpc": "",
   "explorer": "https://ftmscan.com",
-  "subgraph": "https://graph-node.beets-ftm-node.com/subgraphs/name/beethovenx-v4",
+  "subgraph": "https://graph-node.beets-ftm-node.com/subgraphs/name/beethovenx",
   "blockSubgraph": "https://graph-node.beets-ftm-node.com/subgraphs/name/fantom-blocks",
   "farmSubgraph": "https://graph-node.beets-ftm-node.com/subgraphs/name/masterchef",
   "backendUrl": "https://backend.beets-ftm-node.com/graphql",
