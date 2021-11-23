@@ -59,7 +59,7 @@ import useNumbers from '@/composables/useNumbers';
 import useTailwind from '@/composables/useTailwind';
 import BalCard from '@/components/_global/BalCard/BalCard.vue';
 import { chartColors } from '@/constants/colors';
-import { UserPoolData } from '@/services/beethovenx/beethovenx-types';
+import { UserPoolData } from '@/services/embr/embr-types';
 import { sumBy } from 'lodash';
 
 export default defineComponent({

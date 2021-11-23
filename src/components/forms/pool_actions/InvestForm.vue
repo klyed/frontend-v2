@@ -264,7 +264,7 @@
           <BalAlert
             v-if="hasUnstakedBpt"
             title="You have unstaked BPT in your wallet"
-            description="If you deposit your BPT into the farm, you will earn additional rewards paid out in BEETS."
+            description="If you deposit your BPT into the farm, you will earn additional rewards paid out in EMBR."
             type="warning"
             size="sm"
             class="mt-4"

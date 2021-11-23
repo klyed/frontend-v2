@@ -76,7 +76,7 @@
     "ethBufferInstruction": "This pool requires Wrapped Fantom (WFTM). To maximize your<br>investment, you could wrap some additional FTM. Make sure to keep<br>enough FTM to cover gas costs.",
     "exceedsBalance": "Exceeds balance",
     "enterAmount": "Enter amount",
-    "investmentPoolsAbout": "Stake your assets to get $BEETS tokens for participating in Beethoven X liquidity mining.",
+    "investmentPoolsAbout": "Stake your assets to get $EMBR tokens for participating in Beethoven X liquidity mining.",
     "investmentPoolsAboutLink": "Learn more ->",
     "earnBAL": "Earn BAL when swapping eligible tokens",
     "ethereumTxTypeTooltip": "Most users will want EIP-1559 Transactions, but there are some instances that may require a Legacy Transaction. For example, some Ledger users have had issues using MetaMask with EIP-1559 Transactions.",

@@ -1,37 +1,37 @@
 import Service from '@/services/balancer/contracts/balancer-contracts.service';
 import ConfigService from '@/services/config/config.service';
 import { call } from '@/lib/utils/balancer/contract';
-import { default as FreshBeetsAbi } from '@/lib/abi/FreshBeets.json';
+import { default as CharredEmbrAbi } from '@/lib/abi/CharredEmbr.json';
 import { BigNumber } from 'ethers';
 import { sendTransaction } from '@/lib/utils/balancer/web3';
 import { Web3Provider } from '@ethersproject/providers';
 
-export default class FreshBeets {
+export default class CharredEmbr {
   service: Service;
 
   constructor(service, private readonly configService = new ConfigService()) {
     this.service = service;
   }
 
-  public async getTotalFreshBeetsSupply(): Promise<BigNumber> {
-    return await call(this.service.provider, FreshBeetsAbi, [
-      this.fbeetsAddress,
+  public async getTotalCharredEmbrSupply(): Promise<BigNumber> {
+    return await call(this.service.provider, CharredEmbrAbi, [
+      this.cembrAddress,
       'totalSupply'
     ]);
   }
 
   public async getTotalVestedTokenAmount(): Promise<BigNumber> {
     console.log('calling');
-    return await call(this.service.provider, FreshBeetsAbi, [
+    return await call(this.service.provider, CharredEmbrAbi, [
       this.vestingTokenAddress,
       'balanceOf',
-      [this.fbeetsAddress]
+      [this.cembrAddress]
     ]);
   }
 
-  public async fBeetsBalanceOf(account: string): Promise<BigNumber> {
-    return await call(this.service.provider, FreshBeetsAbi, [
-      this.fbeetsAddress,
+  public async fEmbrBalanceOf(account: string): Promise<BigNumber> {
+    return await call(this.service.provider, CharredEmbrAbi, [
+      this.cembrAddress,
       'balanceOf',
       [account]
     ]);
@@ -40,8 +40,8 @@ export default class FreshBeets {
   public async enter(provider: Web3Provider, amount: BigNumber): Promise<void> {
     await sendTransaction(
       provider,
-      this.fbeetsAddress,
-      FreshBeetsAbi,
+      this.cembrAddress,
+      CharredEmbrAbi,
       'enter',
       [amount]
     );
@@ -50,17 +50,17 @@ export default class FreshBeets {
   public async leave(provider: Web3Provider, amount: BigNumber): Promise<void> {
     await sendTransaction(
       provider,
-      this.fbeetsAddress,
-      FreshBeetsAbi,
+      this.cembrAddress,
+      CharredEmbrAbi,
       'leave',
       [amount]
     );
   }
 
-  public get fbeetsAddress(): string {
-    return this.service.config.addresses.fbeetsToken || '';
+  public get cembrAddress(): string {
+    return this.service.config.addresses.cembrToken || '';
   }
   public get vestingTokenAddress(): string {
-    return this.service.config.addresses.fbeetsVestingToken || '';
+    return this.service.config.addresses.cembrVestingToken || '';
   }
 }

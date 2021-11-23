@@ -43,7 +43,7 @@ import { flatMap, groupBy, map } from 'lodash';
 import {
   UserPortfolioData,
   UserTokenData
-} from '@/services/beethovenx/beethovenx-types';
+} from '@/services/embr/embr-types';
 import { format } from 'date-fns';
 import { orderBy } from 'lodash';
 

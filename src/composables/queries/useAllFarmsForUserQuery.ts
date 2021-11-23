@@ -17,8 +17,8 @@ export default function useAllFarmsForUserQuery(
   const { appLoading } = useApp();
   const { priceFor, dynamicDataLoading, loading } = useTokens();
   const protocolDataQuery = useProtocolDataQuery();
-  const beetsPrice = computed(
-    () => protocolDataQuery.data?.value?.beetsPrice || 0
+  const embrPrice = computed(
+    () => protocolDataQuery.data?.value?.embrPrice || 0
   );
   const enabled = computed(
     () =>
@@ -38,7 +38,7 @@ export default function useAllFarmsForUserQuery(
       const decoratedUserFarms: FarmUser[] = [];
 
       for (const userFarm of userFarms) {
-        const pendingBeets = await masterChefContractsService.masterChef.getPendingBeetsForFarm(
+        const pendingEmbr = await masterChefContractsService.masterChef.getPendingEmbrForFarm(
           userFarm.pool.id,
           account.value
         );
@@ -52,8 +52,8 @@ export default function useAllFarmsForUserQuery(
 
         decoratedUserFarms.push({
           ...userFarm,
-          pendingBeets,
-          pendingBeetsValue: pendingBeets * beetsPrice.value,
+          pendingEmbr,
+          pendingEmbrValue: pendingEmbr * embrPrice.value,
           pendingRewardToken,
           pendingRewardTokenValue: pendingRewardToken * hndPrice
         });

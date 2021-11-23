@@ -30,7 +30,7 @@ import { BalanceMap } from '@/services/token/concerns/balances.concern';
 import { ContractAllowancesMap } from '@/services/token/concerns/allowances.concern';
 import { tokenService } from '@/services/token/token.service';
 import { configService } from '@/services/config/config.service';
-import { TokenPrices } from '@/services/beethovenx/beethovenx.service';
+import { TokenPrices } from '@/services/embr/embr.service';
 
 /**
  * TYPES

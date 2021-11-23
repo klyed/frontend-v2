@@ -1,16 +1,16 @@
 import { Config } from '@/lib/config';
 import { JsonRpcProvider } from '@ethersproject/providers';
-import { default as MasterChefAbi } from '@/lib/abi/BeethovenxMasterChef.json';
+import { default as MasterChefAbi } from '@/lib/abi/EmbrMasterChef.json';
 import { rpcProviderService as _rpcProviderService } from '@/services/rpc-provider/rpc-provider.service';
 import { configService as _configService } from '@/services/config/config.service';
 import MasterChef from './contracts/master-chef';
-import BeethovenxToken from '@/services/farm/contracts/beethovenx-token';
+import EmbrToken from '@/services/farm/contracts/embr-token';
 import HndRewarder from '@/services/farm/contracts/hnd-rewarder';
 
 export default class MasterChefContractsService {
   masterChef: MasterChef;
   hndRewarder: HndRewarder;
-  beethovenxToken: BeethovenxToken;
+  embrToken: EmbrToken;
   config: Config;
   provider: JsonRpcProvider;
 
@@ -23,7 +23,7 @@ export default class MasterChefContractsService {
 
     // Init contracts
     this.masterChef = new MasterChef(this);
-    this.beethovenxToken = new BeethovenxToken(this);
+    this.embrToken = new EmbrToken(this);
     this.hndRewarder = new HndRewarder(this);
   }
 

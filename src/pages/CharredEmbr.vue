@@ -22,7 +22,7 @@
                 <div>
                   <button
                     style="border: 1px solid black; margin-bottom: 20px"
-                    :onclick="enterFbeets"
+                    :onclick="enterFembr"
                   >
                     enter with 100
                   </button>
@@ -30,7 +30,7 @@
                 <div>
                   <button
                     style="border: 1px solid black"
-                    :onclick="leaveFbeets"
+                    :onclick="leaveFembr"
                   >
                     leave with 100
                   </button>
@@ -40,7 +40,7 @@
                 <br />
                 Exchange amount: {{ currentExchangeAmount }}
                 <br />
-                My fBeets balance: {{ currentFBeetsBalance }}
+                My fEmbr balance: {{ currentFEmbrBalance }}
               </div>
             </div>
           </div>
@@ -64,8 +64,8 @@ export default defineComponent({
     const { isWalletReady } = useWeb3();
     const {
       totalVestedTokenAmount,
-      fBeetsTotalSupply,
-      fBeetsBalance,
+      fEmbrTotalSupply,
+      fEmbrBalance,
       enter,
       leave,
       exchangeAmount,
@@ -75,14 +75,14 @@ export default defineComponent({
 
     const currentExchangeRate = ref();
     const currentExchangeAmount = ref();
-    const currentFBeetsBalance = ref();
+    const currentFEmbrBalance = ref();
 
     totalVestedTokenAmount().then(result => {
       console.log('total vested amount: ', result.toString());
     });
 
-    fBeetsTotalSupply().then(result => {
-      console.log('total fbeets supply', result);
+    fEmbrTotalSupply().then(result => {
+      console.log('total cembr supply', result);
     });
 
     exchangeAmount().then(amount => {
@@ -95,9 +95,9 @@ export default defineComponent({
       console.log('exchange rate: ', rate);
     });
 
-    fBeetsBalance().then(balance => {
-      currentFBeetsBalance.value = balance;
-      console.log('my fBeets balance', balance);
+    fEmbrBalance().then(balance => {
+      currentFEmbrBalance.value = balance;
+      console.log('my fEmbr balance', balance);
     });
 
     async function approve100() {
@@ -105,24 +105,24 @@ export default defineComponent({
       console.log('approved 100');
     }
 
-    async function enterFbeets() {
+    async function enterFembr() {
       await enter(fp(100));
       console.log('entered with 100 bpt');
     }
 
-    async function leaveFbeets() {
+    async function leaveFembr() {
       await leave(fp(100));
       console.log('left with 100 bpt');
     }
 
     return {
       fNum,
-      enterFbeets,
-      leaveFbeets,
+      enterFembr,
+      leaveFembr,
       approve100,
       currentExchangeRate,
       currentExchangeAmount,
-      currentFBeetsBalance
+      currentFEmbrBalance
     };
   }
 });

@@ -8,7 +8,7 @@ import { SubgraphBalancer } from '@/services/balancer/subgraph/types';
 import { masterChefContractsService } from '@/services/farm/master-chef-contracts.service';
 
 interface ProtocolData extends SubgraphBalancer {
-  beetsPrice: number;
+  embrPrice: number;
   circulatingSupply: number;
 }
 
@@ -18,29 +18,29 @@ export default function useProtocolDataQuery(
   const { appNetworkConfig } = useWeb3();
 
   const queryFn = async () => {
-    const [beetsPool] = await balancerSubgraphService.pools.get({
+    const [embrPool] = await balancerSubgraphService.pools.get({
       where: {
-        id: appNetworkConfig.addresses.beetsUsdcReferencePricePool.toLowerCase(),
+        id: appNetworkConfig.addresses.embrUsdcReferencePricePool.toLowerCase(),
         totalShares_gt: -1 // Avoid the filtering for low liquidity pools
       }
     });
 
-    if (!beetsPool) {
-      throw new Error('Could not load beets reference price pool');
+    if (!embrPool) {
+      throw new Error('Could not load embr reference price pool');
     }
 
     const balancerData = await balancerSubgraphService.balancers.get();
-    const beetsPrice = await getBeetsPrice(
-      appNetworkConfig.addresses.beetsUsdcReferencePricePool,
-      appNetworkConfig.addresses.beets,
+    const embrPrice = await getEmbrPrice(
+      appNetworkConfig.addresses.embrUsdcReferencePricePool,
+      appNetworkConfig.addresses.embr,
       appNetworkConfig.addresses.usdc
     );
 
-    const circulatingSupply = await masterChefContractsService.beethovenxToken.getCirculatingSupply();
+    const circulatingSupply = await masterChefContractsService.embrToken.getCirculatingSupply();
 
     return {
       ...balancerData,
-      beetsPrice,
+      embrPrice,
       circulatingSupply
     };
   };
@@ -57,32 +57,32 @@ export default function useProtocolDataQuery(
   );
 }
 
-export async function getBeetsPrice(
+export async function getEmbrPrice(
   poolId: string,
-  beetsAddress: string,
+  embrAddress: string,
   usdcAddress: string
 ) {
-  const [beetsPool] = await balancerSubgraphService.pools.get({
+  const [embrPool] = await balancerSubgraphService.pools.get({
     where: {
       id: poolId.toLowerCase(),
       totalShares_gt: -1 // Avoid the filtering for low liquidity pools
     }
   });
 
-  const beets = beetsPool?.tokens.find(
-    token => token.address.toLowerCase() === beetsAddress.toLowerCase()
+  const embr = embrPool?.tokens.find(
+    token => token.address.toLowerCase() === embrAddress.toLowerCase()
   );
-  const usdc = beetsPool?.tokens.find(
+  const usdc = embrPool?.tokens.find(
     token => token.address.toLowerCase() === usdcAddress.toLowerCase()
   );
 
-  if (!beets || !usdc) {
+  if (!embr || !usdc) {
     return 0;
   }
 
   return (
-    ((parseFloat(beets.weight) / parseFloat(usdc.weight)) *
+    ((parseFloat(embr.weight) / parseFloat(usdc.weight)) *
       parseFloat(usdc.balance)) /
-    parseFloat(beets.balance)
+    parseFloat(embr.balance)
   );
 }

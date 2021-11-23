@@ -2,13 +2,13 @@ import { Config } from '@/lib/config';
 import { JsonRpcProvider } from '@ethersproject/providers';
 import { configService as _configService } from '@/services/config/config.service';
 import { rpcProviderService as _rpcProviderService } from '@/services/rpc-provider/rpc-provider.service';
-import { default as FreshBeetsAbi } from '@/lib/abi/FreshBeets.json';
-import FreshBeets from '@/services/governance/contracts/fbeets';
+import { default as CharredEmbrAbi } from '@/lib/abi/CharredEmbr.json';
+import CharredEmbr from '@/services/governance/contracts/cembr';
 
 export default class GovernanceContractsService {
   config: Config;
   provider: JsonRpcProvider;
-  fbeets: FreshBeets;
+  cembr: CharredEmbr;
 
   constructor(
     readonly configService = _configService,
@@ -18,13 +18,13 @@ export default class GovernanceContractsService {
     this.config = this.configService.network;
 
     // Init contracts
-    this.fbeets = new FreshBeets(this);
+    this.cembr = new CharredEmbr(this);
   }
 
   // Combine all the ABIs and remove duplicates
   public get allABIs() {
     return Object.values(
-      Object.fromEntries([...FreshBeetsAbi].map(row => [row.name, row]))
+      Object.fromEntries([...CharredEmbrAbi].map(row => [row.name, row]))
     );
   }
 }

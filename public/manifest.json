@@ -1,10 +1,10 @@
 {
-  "short_name": "Beethovenx",
-  "name": "Beethovenx",
-  "description": "Swap tokens and manage your assets on Beethovenx Protocol",
+  "short_name": "Embr",
+  "name": "Embr",
+  "description": "Swap tokens and manage your assets on Embr Protocol",
   "providedBy": {
-    "name": "Beethovenx Labs",
-    "url": "https://beethovenx.io"
+    "name": "Embr Labs",
+    "url": "https://embr.io"
   },
   "icons": [
     {

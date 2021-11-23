@@ -12,7 +12,9 @@ const NETWORK = process.env.VUE_APP_NETWORK || '42';
 const networkMap = {
   '1': 'mainnet',
   '42': 'kovan',
-  '137': 'polygon'
+  '137': 'polygon',
+  '34113': 'fuji',
+  '34114': 'avalanche'
 };
 const environment = `${ENV}-${networkMap[NETWORK]}`;
 const release = `frontend-v2@${version}`;
@@ -34,7 +36,7 @@ export default function initSentry(app: App) {
 
     init({
       dsn:
-        'https://d292b6ec7b6e4aa2801d972e06cb232c@o574636.ingest.sentry.io/5725878',
+        'https://673994646b794c1e96965200650c81c0@o1068975.ingest.sentry.io/6063287',
       integrations: [new Integrations.BrowserTracing()],
       tracesSampleRate: 1.0,
       environment,

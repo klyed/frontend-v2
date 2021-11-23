@@ -5,16 +5,16 @@ import LiquidityMining from '@/pages/LiquidityMining.vue';
 import Trade from '@/pages/Trade.vue';
 import Farm from '@/pages/FarmList.vue';
 import FarmDetail from '@/pages/FarmDetail.vue';
-import BeetsLBP from '@/pages/BeetsLBP.vue';
+import EmbrLBP from '@/pages/EmbrLBP.vue';
 import Invest from '@/pages/Invest.vue';
 import PoolCreate from '@/pages/PoolCreate.vue';
-import FreshBeets from '@/pages/FreshBeets.vue';
+import CharredEmbr from '@/pages/CharredEmbr.vue';
 
 const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', redirect: '/trade' },
   { path: '/invest', name: 'invest', component: Invest },
   { path: '/my-portfolio', name: 'my-portfolio', component: Portfolio },
-  { path: '/fbeets', name: 'fbeets', component: FreshBeets },
+  { path: '/cembr', name: 'cembr', component: CharredEmbr },
   { path: '/trade/:assetIn?/:assetOut?', name: 'trade', component: Trade },
   {
     path: '/swap/:assetIn?/:assetOut?',
@@ -30,7 +30,7 @@ const routes: RouteRecordRaw[] = [
     name: 'liquidity-mining',
     component: LiquidityMining
   },
-  { path: '/beets', name: 'beets', component: BeetsLBP },
+  { path: '/embr', name: 'embr', component: EmbrLBP },
 
   { path: '/pool-create', name: 'pool-create', component: PoolCreate },
   { path: '/:pathMatch(.*)*', name: 'not-found', redirect: '/' }

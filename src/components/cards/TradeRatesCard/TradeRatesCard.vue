@@ -12,13 +12,13 @@
       </div>
       <div class="w-20 flex justify-center">
         <img
-          src="https://storageapi.fleek.co/beethovenxfi-team-bucket/SPIRIT.png"
+          src="https://storageapi.fleek.co/embrfi-team-bucket/SPIRIT.png"
           width="32"
         />
       </div>
       <div class="w-20 flex justify-center">
         <img
-          src="https://beethoven-assets.s3.eu-central-1.amazonaws.com/beets-icon-large.png"
+          src="https://beethoven-assets.s3.eu-central-1.amazonaws.com/embr-icon-large.png"
           width="32"
         />
       </div>
@@ -46,7 +46,7 @@
       <div
         :class="[
           'w-20 flex justify-center',
-          spooky[idx] > beets[idx] && spooky[idx] > spirit[idx]
+          spooky[idx] > embr[idx] && spooky[idx] > spirit[idx]
             ? 'text-green-500'
             : ''
         ]"
@@ -59,7 +59,7 @@
       <div
         :class="[
           'w-20 flex justify-center',
-          spirit[idx] > spooky[idx] && spirit[idx] > beets[idx]
+          spirit[idx] > spooky[idx] && spirit[idx] > embr[idx]
             ? 'text-green-500'
             : ''
         ]"
@@ -72,13 +72,13 @@
       <div
         :class="[
           'w-20 flex justify-center',
-          beets[idx] > spooky[idx] && beets[idx] > spirit[idx]
+          embr[idx] > spooky[idx] && embr[idx] > spirit[idx]
             ? 'text-green-500'
             : ''
         ]"
       >
-        {{ beets[idx] ? numeral(beets[idx]).format(item.amountOutFormat) : '' }}
-        <BalLoadingBlock v-if="!beets[idx]" class="h-4 w-12 mx-auto" white />
+        {{ embr[idx] ? numeral(embr[idx]).format(item.amountOutFormat) : '' }}
+        <BalLoadingBlock v-if="!embr[idx]" class="h-4 w-12 mx-auto" white />
       </div>
     </div>
   </BalCard>
@@ -248,14 +248,14 @@ export default defineComponent({
         : data.value.spirit.slice(4, 8);
     });
 
-    const beets = computed(() => {
-      if (!data.value?.beets) {
+    const embr = computed(() => {
+      if (!data.value?.embr) {
         return [];
       }
 
       return toggle.value
-        ? data.value.beets.slice(0, 4)
-        : data.value.beets.slice(4, 8);
+        ? data.value.embr.slice(0, 4)
+        : data.value.embr.slice(4, 8);
     });
     const loading = computed(() => isLoading.value || isIdle.value);
 
@@ -268,7 +268,7 @@ export default defineComponent({
       items,
       spooky,
       spirit,
-      beets,
+      embr,
       loading,
 
       // methods

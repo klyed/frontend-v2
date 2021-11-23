@@ -7,7 +7,7 @@
     "patch": 2
   },
   "tags": {},
-  "logoURI": "https://storageapi.fleek.co/beethovenxfi-team-bucket/bethovenx-icon.png",
+  "logoURI": "https://storageapi.fleek.co/embrfi-team-bucket/bethovenx-icon.png",
   "keywords": [
     "beethoven",
     "default",
@@ -44,7 +44,7 @@
       "symbol": "wFTM",
       "decimals": 18,
       "chainId": 250,
-      "logoURI": "https://storageapi.fleek.co/beethovenxfi-team-bucket/FTM.png"
+      "logoURI": "https://storageapi.fleek.co/embrfi-team-bucket/FTM.png"
     },
     {
       "name": "DAI",
@@ -76,7 +76,7 @@
       "symbol": "SPIRIT",
       "decimals": 18,
       "chainId": 250,
-      "logoURI": "https://storageapi.fleek.co/beethovenxfi-team-bucket/SPIRIT.png"
+      "logoURI": "https://storageapi.fleek.co/embrfi-team-bucket/SPIRIT.png"
     },
     {
       "name": "Spookyswap",
@@ -92,7 +92,7 @@
       "symbol": "SCREAM",
       "decimals": 18,
       "chainId": 250,
-      "logoURI": "https://storageapi.fleek.co/beethovenxfi-team-bucket/SCREAM.png"
+      "logoURI": "https://storageapi.fleek.co/embrfi-team-bucket/SCREAM.png"
     },
     {
       "name": "TAROT",
@@ -100,7 +100,7 @@
       "symbol": "TAROT",
       "decimals": 18,
       "chainId": 250,
-      "logoURI": "https://storageapi.fleek.co/beethovenxfi-team-bucket/TAROT.png"
+      "logoURI": "https://storageapi.fleek.co/embrfi-team-bucket/TAROT.png"
     },
     {
       "name": "Steak Token",
@@ -108,7 +108,7 @@
       "symbol": "STEAK",
       "decimals": 18,
       "chainId": 250,
-      "logoURI": "https://storageapi.fleek.co/beethovenxfi-team-bucket/STEAK.png"
+      "logoURI": "https://storageapi.fleek.co/embrfi-team-bucket/STEAK.png"
     },
     {
       "name": "Popsicle Finance",
@@ -116,7 +116,7 @@
       "symbol": "ICE",
       "decimals": 18,
       "chainId": 250,
-      "logoURI": "https://storageapi.fleek.co/beethovenxfi-team-bucket/ICE.png"
+      "logoURI": "https://storageapi.fleek.co/embrfi-team-bucket/ICE.png"
     },
     {
       "name": "Curve DAO Token",
@@ -132,7 +132,7 @@
       "symbol": "ANY",
       "decimals": 18,
       "chainId": 250,
-      "logoURI": "https://storageapi.fleek.co/beethovenxfi-team-bucket/ANY.png"
+      "logoURI": "https://storageapi.fleek.co/embrfi-team-bucket/ANY.png"
     },
     {
       "name": "Magic Internet Money",
@@ -145,10 +145,10 @@
     {
       "name": "Beethoven X",
       "address": "0xF24Bcf4d1e507740041C9cFd2DddB29585aDCe1e",
-      "symbol": "BEETS",
+      "symbol": "EMBR",
       "decimals": 18,
       "chainId": 250,
-      "logoURI": "https://beethoven-assets.s3.eu-central-1.amazonaws.com/beets-icon-large.png"
+      "logoURI": "https://beethoven-assets.s3.eu-central-1.amazonaws.com/embr-icon-large.png"
     },
     {
       "name": "Spell Token",

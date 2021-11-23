@@ -17,6 +17,7 @@ export default class DexContractsService {
     this.provider = this.rpcProviderService.jsonProvider;
     this.config = this.configService.network;
 
+    //TODO - update these to pangolin and trader joe
     this.spookySwap = new UniSwapRouter(
       this,
       '0xF491e7B69E4244ad4002BC14e878a34207E38c29'

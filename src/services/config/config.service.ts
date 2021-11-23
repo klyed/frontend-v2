@@ -18,7 +18,7 @@ export default class ConfigService {
     return {
       APP_ENV: process.env.VUE_APP_ENV || 'development',
       NETWORK: process.env.VUE_APP_NETWORK || '250',
-      APP_DOMAIN: process.env.VUE_APP_DOMAIN || 'app.beethovenx.io',
+      APP_DOMAIN: process.env.VUE_APP_DOMAIN || 'app.embr.io',
       IPFS_NODE: process.env.VUE_APP_IPFS_NODE || 'ipfs.io',
       BLOCKNATIVE_DAPP_ID: process.env.VUE_APP_BLOCKNATIVE_DAPP_ID || 'xxx',
       ALCHEMY_KEY: process.env.VUE_APP_ALCHEMY_KEY || '',

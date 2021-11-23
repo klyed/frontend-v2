@@ -6,7 +6,7 @@ import { configService } from '@/services/config/config.service';
 import MultiTokenLiquidityMining from './MultiTokenLiquidityMining.json';
 import { getAddress } from '@ethersproject/address';
 import { FiatCurrency } from '@/constants/currency';
-import { TokenPrices } from '@/services/beethovenx/beethovenx.service';
+import { TokenPrices } from '@/services/embr/embr.service';
 
 type PoolId = string;
 

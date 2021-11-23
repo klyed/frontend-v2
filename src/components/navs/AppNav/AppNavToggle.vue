@@ -41,25 +41,25 @@
       Portfolio
     </router-link>
     <router-link
-      :to="{ name: 'fbeets' }"
+      :to="{ name: 'cembr' }"
       :class="[
         'toggle-link px-4 rounded-l-lg',
-        { [activeClasses]: isFreshBeetsPage }
+        { [activeClasses]: isCharredEmbrPage }
       ]"
-      @click="trackGoal(Goals.ClickNavFreshBeets)"
+      @click="trackGoal(Goals.ClickNavCharredEmbr)"
       v-if="isLoggedIn"
     >
-      fBeets
+      fEmbr
     </router-link>
     <!--    <router-link
-      :to="{ name: 'beets' }"
+      :to="{ name: 'embr' }"
       :class="[
         'toggle-link px-6 rounded-r-lg',
-        { [activeClasses]: isBeetsPage }
+        { [activeClasses]: isEmbrPage }
       ]"
-      @click="trackGoal(Goals.ClickNavBeets)"
+      @click="trackGoal(Goals.ClickNavEmbr)"
     >
-      BEETS
+      EMBR
     </router-link>-->
   </div>
 </template>
@@ -85,17 +85,17 @@ export default defineComponent({
       'bg-black text-white rounded-lg dark:text-black dark:bg-white';
     const isTradePage = computed(() => route.name === 'trade');
     const isFarmPage = computed(() => String(route.name).startsWith('farm'));
-    const isBeetsPage = computed(() => route.name === 'beets');
+    const isEmbrPage = computed(() => route.name === 'embr');
     const isPortfolioPage = computed(() => route.name === 'my-portfolio');
     const isInvestPage = computed(
       () => route.name === 'invest' || String(route.name).startsWith('pool')
     );
-    const isFreshBeetsPage = computed(() => route.name === 'fbeets');
+    const isCharredEmbrPage = computed(() => route.name === 'cembr');
     const isHomePage = computed(
       () =>
         !isTradePage.value &&
         !isFarmPage.value &&
-        !isBeetsPage.value &&
+        !isEmbrPage.value &&
         !isInvestPage.value
     );
     const { trackGoal, Goals } = useFathom();
@@ -112,14 +112,14 @@ export default defineComponent({
       isFarmPage,
       activeClasses,
       trackGoal,
-      isBeetsPage,
+      isEmbrPage,
       isInvestPage,
       isHomePage,
       Goals,
       EXTERNAL_LINKS,
       isLoggedIn,
       isPortfolioPage,
-      isFreshBeetsPage
+      isCharredEmbrPage
     };
   }
 });

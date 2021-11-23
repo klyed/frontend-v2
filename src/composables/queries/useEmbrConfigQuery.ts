@@ -4,21 +4,21 @@ import { UseQueryOptions } from 'react-query/types';
 import QUERY_KEYS from '@/constants/queryKeys';
 import { FETCH_ONCE_OPTIONS } from '@/constants/vue-query';
 import {
-  BeethovenxConfig,
-  beethovenxService
-} from '@/services/beethovenx/beethovenx.service';
+  EmbrConfig,
+  embrService
+} from '@/services/embr/embr.service';
 
 /**
  * Fetch all token lists, should only happen once.
  */
-export default function useBeethovenxConfigQuery(
-  options: UseQueryOptions<BeethovenxConfig> = {}
+export default function useEmbrConfigQuery(
+  options: UseQueryOptions<EmbrConfig> = {}
 ) {
   const queryKey = reactive(QUERY_KEYS.Config.All);
 
   const queryFn = async () => {
-    console.log('Fetching beethovenx config');
-    return beethovenxService.getBeethovenxConfig();
+    console.log('Fetching embr config');
+    return embrService.getEmbrConfig();
   };
 
   const queryOptions = reactive({
@@ -27,5 +27,5 @@ export default function useBeethovenxConfigQuery(
     ...options
   });
 
-  return useQuery<BeethovenxConfig>(queryKey, queryFn, queryOptions);
+  return useQuery<EmbrConfig>(queryKey, queryFn, queryOptions);
 }

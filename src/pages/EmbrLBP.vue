@@ -5,7 +5,7 @@
       <BalIcon name="clock" class="mr-4" />
 
       <span class="font-semibold"
-        >BEETS Liquidity Bootstrapping Event starts:
+        >EMBR Liquidity Bootstrapping Event starts:
         {{ startDateTimeFormatted }}</span
       >
     </div>
@@ -14,7 +14,7 @@
     <!--    <template v-if="isLbpOver">
       <div class="mx-8">
         <div class="lg:-ml-5 mt-8">
-          <img src="~@/assets/images/beets-lbp-headline.svg" class="mx-auto" />
+          <img src="~@/assets/images/embr-lbp-headline.svg" class="mx-auto" />
         </div>
         <h3 class="text-center mt-8">
           The event has come to an end, thanks so much for participating!
@@ -30,7 +30,7 @@
           >
           or follow us on
           <a
-            href="https://twitter.com/beethoven_x"
+            href="https://twitter.com/embrfinance"
             class="text-red-500 underline"
             >Twitter</a
           >
@@ -44,22 +44,22 @@
       <div class="col-span-2 order-2 lg:order-1">
         <div class="grid grid-cols-1 gap-y-8">
           <div>
-            <h2 class="text-red-500 mb-2">BEETS</h2>
+            <h2 class="text-red-500 mb-2">EMBR</h2>
             <!--            <div class="lg:-ml-5 lg:-mt-4">
-              <img src="~@/assets/images/beets-headline.svg" />
+              <img src="~@/assets/images/embr-headline.svg" />
             </div>-->
             <!--            <p class="font-medium">
               Before participating, please read our blog post explaining
               Liquidity Bootstrapping Pools
               <a
-                href="https://beethovenxio.medium.com/drop-the-beets-ebf8c61c898"
+                href="https://embrio.medium.com/drop-the-embr-ebf8c61c898"
                 class="text-red-500 underline"
                 >here</a
               >.
             </p>-->
           </div>
           <div class="px-1 lg:px-0">
-            <BeetsLBPChart
+            <EmbrLBPChart
               :loading="loadingTokenPrices || loadingPool"
               :lbp-token-name="lbpTokenName"
               :lbp-token-address="lbpTokenAddress"
@@ -74,7 +74,7 @@
             />
           </div>
           <div class="mb-4 px-1 lg:px-0">
-            <BeetsLBPStatCards
+            <EmbrLBPStatCards
               :pool="pool"
               :lbp-token-address="lbpTokenAddress"
               :lbp-token-name="lbpTokenName"
@@ -144,8 +144,8 @@ import usePoolQuery from '@/composables/queries/usePoolQuery';
 import { EXTERNAL_LINKS } from '@/constants/links';
 import useWeb3 from '@/services/web3/useWeb3';
 import useApp from '@/composables/useApp';
-import BeetsLBPChart from '@/components/pages/lbp/BeetsLBPChart.vue';
-import BeetsLBPStatCards from '@/components/pages/lbp/BeetsLBPStatCards.vue';
+import EmbrLBPChart from '@/components/pages/lbp/EmbrLBPChart.vue';
+import EmbrLBPStatCards from '@/components/pages/lbp/EmbrLBPStatCards.vue';
 import LBPTradeCard from '@/components/cards/LBPTradeCard/LBPTradeCard.vue';
 import LBPTable from '@/components/tables/LBPTable/LBPTable.vue';
 import useSubgraphTokenPricesQuery from '@/composables/queries/useSubgraphTokenPricesQuery';
@@ -173,8 +173,8 @@ const REFETCH_QUERIES_BLOCK_BUFFER = 3;
 export default defineComponent({
   components: {
     ...PoolPageComponents,
-    BeetsLBPChart,
-    BeetsLBPStatCards,
+    EmbrLBPChart,
+    EmbrLBPStatCards,
     LBPTradeCard,
     LBPTable
   },

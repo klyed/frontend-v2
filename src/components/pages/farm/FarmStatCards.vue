@@ -17,7 +17,7 @@
           My Pending Rewards
         </div>
         <div class="text-xl font-medium truncate flex items-center">
-          {{ fNum(pool.farm.pendingBeets, 'token_fixed') }} BEETS
+          {{ fNum(pool.farm.pendingEmbr, 'token_fixed') }} EMBR
         </div>
         <div
           v-if="pool.farm.pendingRewardToken > 0"
@@ -28,7 +28,7 @@
         <div class="truncate flex items-center pb-8">
           {{
             fNum(
-              pool.farm.pendingBeetsValue + pool.farm.pendingRewardTokenValue,
+              pool.farm.pendingEmbrValue + pool.farm.pendingRewardTokenValue,
               'usd'
             )
           }}
@@ -39,7 +39,7 @@
           block
           color="gradient"
           :disabled="
-            pool.farm.pendingBeets <= 0 && pool.farm.pendingRewardToken <= 0
+            pool.farm.pendingEmbr <= 0 && pool.farm.pendingRewardToken <= 0
           "
           :loading="harvesting"
           @click.prevent="harvestRewards"
@@ -109,8 +109,8 @@ export default defineComponent({
           value: fNum(farm.tvl, 'usd')
         },
         {
-          id: 'beets',
-          label: 'BEETS',
+          id: 'embr',
+          label: 'EMBR',
           value: `${fNum(farm.rewards, 'token_lg')} / day`
         },
         {
@@ -128,8 +128,8 @@ export default defineComponent({
 
     const pendingRewards = computed(() => {
       return {
-        count: farmUser.value?.pendingBeets || 0,
-        value: farmUser.value?.pendingBeetsValue || 0
+        count: farmUser.value?.pendingEmbr || 0,
+        value: farmUser.value?.pendingEmbrValue || 0
       };
     });
 

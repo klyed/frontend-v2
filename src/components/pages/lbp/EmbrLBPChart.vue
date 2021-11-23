@@ -39,7 +39,7 @@ interface HistoryItem {
 }
 
 export default defineComponent({
-  name: 'BeetsLBPChart',
+  name: 'EmbrLBPChart',
 
   props: {
     lbpTokenName: { type: String, required: true },
@@ -62,7 +62,7 @@ export default defineComponent({
     const store = useStore();
     const appLoading = computed(() => store.state.app.loading);
     const tailwind = useTailwind();
-    const beets = computed(() =>
+    const embr = computed(() =>
       props.pool?.tokens?.find(
         token => token.address.toLowerCase() === props.lbpTokenAddress
       )
@@ -72,17 +72,17 @@ export default defineComponent({
         token => token.address.toLowerCase() === props.usdcAddress
       )
     );
-    const currentBeetsPrice = computed(() => {
-      if (!beets.value || !usdc.value) {
+    const currentEmbrPrice = computed(() => {
+      if (!embr.value || !usdc.value) {
         return 0;
       }
 
-      const beetsBalance = parseFloat(beets.value?.balance || '0');
-      const beetsWeight = parseFloat(beets.value?.weight || '0');
+      const embrBalance = parseFloat(embr.value?.balance || '0');
+      const embrWeight = parseFloat(embr.value?.weight || '0');
       const usdcBalance = parseFloat(usdc.value?.balance || '0');
       const usdcWeight = parseFloat(usdc.value?.weight || '0');
 
-      return ((beetsWeight / usdcWeight) * usdcBalance) / beetsBalance;
+      return ((embrWeight / usdcWeight) * usdcBalance) / embrBalance;
     });
 
     const lastPriceTimestamp = computed(() => {
@@ -98,8 +98,8 @@ export default defineComponent({
       tailwind.theme.colors.green['400']
     ];
 
-    const beetsPriceValues = computed(() => {
-      if (!beets.value || !usdc.value) {
+    const embrPriceValues = computed(() => {
+      if (!embr.value || !usdc.value) {
         return [];
       }
       const fistTime = isBefore(new Date(), parseISO(props.lbpStartTime))
@@ -117,44 +117,44 @@ export default defineComponent({
       ];
       const prices = [
         ...tokenPrices.map(price => parseFloat(price.price)),
-        currentBeetsPrice.value,
-        currentBeetsPrice.value
+        currentEmbrPrice.value,
+        currentEmbrPrice.value
       ];
 
       return zip(times, prices);
     });
 
     const predictedPriceValues = computed(() => {
-      if (!beets.value || !usdc.value) {
+      if (!embr.value || !usdc.value) {
         return [];
       }
 
       const fistTime = isBefore(new Date(), parseISO(props.lbpStartTime))
         ? parseISO(props.lbpStartTime)
         : new Date();
-      const beetsBalance = parseFloat(beets.value.balance);
+      const embrBalance = parseFloat(embr.value.balance);
       const usdcBalance = parseFloat(usdc.value.balance);
-      let beetsWeight = parseFloat(beets.value.weight);
+      let embrWeight = parseFloat(embr.value.weight);
       let usdcWeight = parseFloat(usdc.value.weight);
-      const predicted: number[] = [currentBeetsPrice.value];
+      const predicted: number[] = [currentEmbrPrice.value];
       const times: string[] = [format(fistTime, 'yyyy-MM-dd HH:mm:ss')];
       const endTimestamp = parseISO(props.lbpEndTime);
       let timestamp = fistTime;
 
       while (isBefore(addSeconds(timestamp, props.timeStep), endTimestamp)) {
         timestamp = addSeconds(timestamp, props.timeStep);
-        beetsWeight -= props.weightStep;
+        embrWeight -= props.weightStep;
         usdcWeight += props.weightStep;
 
-        const beetsPrice =
-          ((beetsWeight / usdcWeight) * usdcBalance) / beetsBalance;
+        const embrPrice =
+          ((embrWeight / usdcWeight) * usdcBalance) / embrBalance;
 
-        predicted.push(beetsPrice);
+        predicted.push(embrPrice);
         times.push(format(timestamp, 'yyyy-MM-dd HH:mm:ss'));
       }
 
       times.push(format(endTimestamp, 'yyyy-MM-dd HH:mm:ss'));
-      predicted.push(((80 / 20) * usdcBalance) / beetsBalance);
+      predicted.push(((80 / 20) * usdcBalance) / embrBalance);
 
       return zip(times, predicted);
     });
@@ -166,8 +166,8 @@ export default defineComponent({
           values: predictedPriceValues.value
         },*/
         {
-          name: 'BEETS Price',
-          values: beetsPriceValues.value
+          name: 'EMBR Price',
+          values: embrPriceValues.value
         }
       ];
     });

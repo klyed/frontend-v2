@@ -142,10 +142,10 @@ export default defineComponent({
       },
       {
         name: 'Pending Rewards',
-        id: 'pendingBeets',
+        id: 'pendingEmbr',
         accessor: pool =>
-          numeral(pool.farm.pendingBeets).format('0,0.[00]') + ' BEETS',
-        sortKey: pool => pool.farm.pendingBeets,
+          numeral(pool.farm.pendingEmbr).format('0,0.[00]') + ' EMBR',
+        sortKey: pool => pool.farm.pendingEmbr,
         align: 'right',
         width: 200
       },

@@ -442,7 +442,7 @@ export default defineComponent({
       } else {
         return props.sorReturn.isV1swap
           ? `https://${prefix}pools.balancer.exchange/#/pool/${id}`
-          : `https://${prefix}beethovenx.io/#pool/${id}`;
+          : `https://${prefix}embr.io/#pool/${id}`;
       }
     }
 

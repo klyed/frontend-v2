@@ -101,7 +101,7 @@ import BalCard from '@/components/_global/BalCard/BalCard.vue';
 import {
   UserPoolData,
   UserTokenData
-} from '@/services/beethovenx/beethovenx-types';
+} from '@/services/embr/embr-types';
 import { orderBy } from 'lodash';
 import useNumbers from '@/composables/useNumbers';
 

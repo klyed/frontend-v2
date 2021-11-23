@@ -4,80 +4,80 @@ import { erc20ContractService } from '@/services/erc20/erc20-contracts.service';
 import { BigNumber, utils } from 'ethers';
 import { bn } from '@/lib/utils/numbers';
 import { sendTransaction } from '@/lib/utils/balancer/web3';
-import { default as FreshBeetsAbi } from '@/lib/abi/FreshBeets.json';
+import { default as CharredEmbrAbi } from '@/lib/abi/CharredEmbr.json';
 import { MaxUint256 } from '@ethersproject/constants';
 
 export function useGovernance() {
   const { account, getProvider } = useWeb3();
 
-  async function fBeetsTotalSupply() {
+  async function fEmbrTotalSupply() {
     return utils.formatUnits(
-      await governanceContractsService.fbeets.getTotalFreshBeetsSupply()
+      await governanceContractsService.cembr.getTotalCharredEmbrSupply()
     );
   }
 
-  async function fBeetsBalance() {
+  async function fEmbrBalance() {
     return utils.formatUnits(
-      await governanceContractsService.fbeets.fBeetsBalanceOf(account.value)
+      await governanceContractsService.cembr.fEmbrBalanceOf(account.value)
     );
   }
 
   async function totalVestedTokenAmount() {
     console.log('fetching total vested amount');
     return utils.formatUnits(
-      await governanceContractsService.fbeets.getTotalVestedTokenAmount()
+      await governanceContractsService.cembr.getTotalVestedTokenAmount()
     );
   }
 
   async function approveVestingToken(amount?: BigNumber) {
     await erc20ContractService.erc20.approveToken(
       getProvider(),
-      governanceContractsService.fbeets.fbeetsAddress,
-      governanceContractsService.fbeets.vestingTokenAddress,
+      governanceContractsService.cembr.cembrAddress,
+      governanceContractsService.cembr.vestingTokenAddress,
       amount?.toString()
     );
   }
 
   async function enter(amount: BigNumber) {
-    return governanceContractsService.fbeets.enter(getProvider(), amount);
+    return governanceContractsService.cembr.enter(getProvider(), amount);
   }
 
   async function leave(amount: BigNumber) {
-    return governanceContractsService.fbeets.leave(getProvider(), amount);
+    return governanceContractsService.cembr.leave(getProvider(), amount);
   }
 
   async function exchangeRate() {
-    const totalFBeetsSupply = await governanceContractsService.fbeets.getTotalFreshBeetsSupply();
-    const totalVestedTokens = await governanceContractsService.fbeets.getTotalVestedTokenAmount();
+    const totalFEmbrSupply = await governanceContractsService.cembr.getTotalCharredEmbrSupply();
+    const totalVestedTokens = await governanceContractsService.cembr.getTotalVestedTokenAmount();
 
-    if (totalFBeetsSupply.eq(bn(0))) {
+    if (totalFEmbrSupply.eq(bn(0))) {
       return '0';
     }
 
-    return totalVestedTokens.div(totalFBeetsSupply).toString();
+    return totalVestedTokens.div(totalFEmbrSupply).toString();
   }
 
-  // returns the amount you would get if you traded back fBeets => vesting token
+  // returns the amount you would get if you traded back fEmbr => vesting token
   async function exchangeAmount() {
-    const totalFBeetsSupply = await governanceContractsService.fbeets.getTotalFreshBeetsSupply();
-    const totalVestedTokens = await governanceContractsService.fbeets.getTotalVestedTokenAmount();
-    const fBeetsBalance = await governanceContractsService.fbeets.fBeetsBalanceOf(
+    const totalFEmbrSupply = await governanceContractsService.cembr.getTotalCharredEmbrSupply();
+    const totalVestedTokens = await governanceContractsService.cembr.getTotalVestedTokenAmount();
+    const fEmbrBalance = await governanceContractsService.cembr.fEmbrBalanceOf(
       account.value
     );
 
-    if (totalFBeetsSupply.eq(bn(0))) {
+    if (totalFEmbrSupply.eq(bn(0))) {
       return '0';
     }
 
     return utils.formatUnits(
-      fBeetsBalance.mul(totalVestedTokens).div(totalFBeetsSupply)
+      fEmbrBalance.mul(totalVestedTokens).div(totalFEmbrSupply)
     );
   }
 
   return {
     approveVestingToken,
-    fBeetsTotalSupply,
-    fBeetsBalance,
+    fEmbrTotalSupply,
+    fEmbrBalance,
     totalVestedTokenAmount,
     enter,
     leave,

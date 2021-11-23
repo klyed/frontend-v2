@@ -16,7 +16,7 @@ import useWeb3 from '@/services/web3/useWeb3';
 interface QueryResponse {
   spooky: number[];
   spirit: number[];
-  beets: number[];
+  embr: number[];
 }
 
 interface DexesQueryInput {
@@ -87,7 +87,7 @@ export default function useDexesQuery(
           inputs[idx].tokenOutDecimal
         ).toNumber()
       ),
-      beets: response.map((value, idx) =>
+      embr: response.map((value, idx) =>
         scaleDown(value.returnAmount, inputs[idx].tokenOutDecimal).toNumber()
       )
     };

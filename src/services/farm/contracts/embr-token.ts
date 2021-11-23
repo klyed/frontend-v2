@@ -1,14 +1,14 @@
 import Service from '@/services/balancer/contracts/balancer-contracts.service';
 import ConfigService from '@/services/config/config.service';
 import { Multicaller } from '@/lib/utils/balancer/contract';
-import { default as BeethovenxTokenAbi } from '@/lib/abi/BeethovenxToken.json';
+import { default as EmbrTokenAbi } from '@/lib/abi/EmbrToken.json';
 import { getAddress } from '@ethersproject/address';
 import { scale } from '@/lib/utils';
 import BigNumber from 'bignumber.js';
 
 const INITIAL_MINT = 50_000_000;
 
-export default class BeethovenxToken {
+export default class EmbrToken {
   service: Service;
 
   constructor(service, private readonly configService = new ConfigService()) {
@@ -21,7 +21,7 @@ export default class BeethovenxToken {
     const masterChefMultiCaller = new Multicaller(
       this.configService.network.key,
       this.service.provider,
-      BeethovenxTokenAbi
+      EmbrTokenAbi
     );
     masterChefMultiCaller.call('totalSupply', this.address, 'totalSupply', []);
     result = await masterChefMultiCaller.execute(result);
@@ -34,6 +34,6 @@ export default class BeethovenxToken {
   }
 
   public get address(): string {
-    return this.service.config.addresses.beethovenxToken || '';
+    return this.service.config.addresses.embrToken || '';
   }
 }

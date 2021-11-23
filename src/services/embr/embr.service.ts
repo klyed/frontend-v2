@@ -8,7 +8,7 @@ import {
   UserPortfolio,
   UserPortfolioData,
   UserTokenData
-} from '@/services/beethovenx/beethovenx-types';
+} from '@/services/embr/embr-types';
 import { getAddress } from '@ethersproject/address';
 import { keyBy } from 'lodash';
 
@@ -16,13 +16,13 @@ export type Price = { [fiat: string]: number };
 export type TokenPrices = { [address: string]: Price };
 export type HistoricalPrices = { [timestamp: string]: number[] };
 
-export interface BeethovenxConfig {
+export interface EmbrConfig {
   incentivizedPools: string[];
   pausedPools: string[];
   blacklistedPools: string[];
 }
 
-export default class BeethovenxService {
+export default class EmbrService {
   private readonly url: string;
 
   constructor(private readonly configService = _configService) {
@@ -118,8 +118,8 @@ export default class BeethovenxService {
     return result;
   }
 
-  public async getBeethovenxConfig(): Promise<BeethovenxConfig> {
-    const { data } = await axios.get<{ result: BeethovenxConfig }>(
+  public async getEmbrConfig(): Promise<EmbrConfig> {
+    const { data } = await axios.get<{ result: EmbrConfig }>(
       this.configService.network.configSanityUrl
     );
 
@@ -227,4 +227,4 @@ export default class BeethovenxService {
   }
 }
 
-export const beethovenxService = new BeethovenxService();
+export const embrService = new EmbrService();

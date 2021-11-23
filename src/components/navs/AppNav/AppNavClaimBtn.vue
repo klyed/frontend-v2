@@ -31,7 +31,7 @@
           Pending Rewards
         </div>
         <div class="text-xl font-medium truncate flex items-center">
-          {{ data.pendingBeets }}
+          {{ data.pendingEmbr }}
         </div>
         <div
           v-if="data.hasPendingRewardToken"
@@ -122,7 +122,7 @@ export default defineComponent({
         farms,
         farm => farm.pendingRewardTokenValue
       );
-      const pendingBeetsValue = sumBy(farms, farm => farm.pendingBeetsValue);
+      const pendingEmbrValue = sumBy(farms, farm => farm.pendingEmbrValue);
 
       const averageApr =
         sumBy(farms, farm => farm.apr * (farm.stake || 0)) /
@@ -134,15 +134,15 @@ export default defineComponent({
           sumBy(farms, farm => farm.stake || 0),
           'usd'
         ),
-        pendingBeets:
-          numeral(sumBy(farms, farm => farm.pendingBeets)).format(
+        pendingEmbr:
+          numeral(sumBy(farms, farm => farm.pendingEmbr)).format(
             '0,0.[0000]'
-          ) + ' BEETS',
+          ) + ' EMBR',
         hasPendingRewardToken: pendingRewardToken > 0,
         pendingRewardToken:
           numeral(pendingRewardToken).format('0,0.[0000]') + ' HND',
         pendingRewardValue: fNum(
-          pendingBeetsValue + pendingRewardTokenValue,
+          pendingEmbrValue + pendingRewardTokenValue,
           'usd'
         ),
         apr: fNum(averageApr, 'percent'),

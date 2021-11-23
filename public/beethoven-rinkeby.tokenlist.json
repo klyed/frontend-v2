@@ -7,7 +7,7 @@
     "patch": 0
   },
   "tags": {},
-  "logoURI": "https://storageapi.fleek.co/beethovenxfi-team-bucket/bethovenx-icon.png",
+  "logoURI": "https://storageapi.fleek.co/embrfi-team-bucket/bethovenx-icon.png",
   "keywords": [
     "beethoven",
     "default",
@@ -131,18 +131,18 @@
     {
       "name": "Beethoven X",
       "address": "0x2f2B2cCDb702064B0C045542cF25cff2C1a3ea19",
-      "symbol": "BEETS",
+      "symbol": "EMBR",
       "decimals": 18,
       "chainId": 4,
-      "logoURI": "https://beethoven-assets.s3.eu-central-1.amazonaws.com/beets-icon-large.png"
+      "logoURI": "https://beethoven-assets.s3.eu-central-1.amazonaws.com/embr-icon-large.png"
     },
     {
       "name": "Beethoven X",
       "address": "0x76227eFa96fF24738c28dEf07208E704a92cD31A",
-      "symbol": "BEETS",
+      "symbol": "EMBR",
       "decimals": 18,
       "chainId": 4,
-      "logoURI": "https://beethoven-assets.s3.eu-central-1.amazonaws.com/beets-icon-large.png"
+      "logoURI": "https://beethoven-assets.s3.eu-central-1.amazonaws.com/embr-icon-large.png"
     }
   ]
 }

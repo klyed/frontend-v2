@@ -17,14 +17,14 @@
       <div
         class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-center pb-6 ml-8"
       >
-        <a href="https://twitter.com/beethoven_x" class="mr-12">
+        <a href="https://twitter.com/embrfinance" class="mr-12">
           <img
             src="~@/assets/images/twitter-icon.png"
             width="40"
             class="mx-auto"
           />
         </a>
-        <a href="https://beethovenxio.medium.com/" class="mr-12">
+        <a href="https://embrio.medium.com/" class="mr-12">
           <img
             src="~@/assets/images/medium-icon.png"
             width="40"
@@ -38,14 +38,14 @@
             class="mx-auto"
           />
         </a>
-        <a href="https://docs.beethovenx.io/" class="mr-12">
+        <a href="https://docs.embr.io/" class="mr-12">
           <img
             src="~@/assets/images/gitbook-logo.png"
             width="40"
             class="mx-auto"
           />
         </a>
-        <a href="https://github.com/beethovenxfi">
+        <a href="https://github.com/embrfinanace">
           <img
             src="~@/assets/images/github-logo.png"
             width="40"

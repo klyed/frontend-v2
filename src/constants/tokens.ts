@@ -2,7 +2,7 @@ import { configService } from '@/services/config/config.service';
 
 export const TOKENS = {
   Popular: {
-    Symbols: ['WBTC', 'DAI', 'USDC', 'WFTM', 'WETH']
+    Symbols: ['DAI', 'USDC', 'WAVAX', 'WETH']
   },
   AddressMap: {
     '1': {
@@ -28,6 +28,11 @@ export const TOKENS = {
       ETH: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
       WETH: '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83',
       BAL: '0xF24Bcf4d1e507740041C9cFd2DddB29585aDCe1e'
+    },
+    '43113': {
+      ETH: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+      WETH: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
+      BAL: '0xEE67880A6aaBa39c5eAf833B68Ea5fd908dC008D'
     }
   },
   Prices: {

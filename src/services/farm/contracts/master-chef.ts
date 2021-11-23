@@ -1,7 +1,7 @@
 import Service from '@/services/balancer/contracts/balancer-contracts.service';
 import ConfigService from '@/services/config/config.service';
 import { Multicaller } from '@/lib/utils/balancer/contract';
-import { default as MasterChefAbi } from '@/lib/abi/BeethovenxMasterChef.json';
+import { default as MasterChefAbi } from '@/lib/abi/EmbrMasterChef.json';
 import { sendTransaction } from '@/lib/utils/balancer/web3';
 import { Web3Provider } from '@ethersproject/providers';
 import { getAddress } from '@ethersproject/address';
@@ -15,7 +15,7 @@ export default class MasterChef {
     this.service = service;
   }
 
-  public async getPendingBeetsForFarm(
+  public async getPendingEmbrForFarm(
     id: string,
     user: string
   ): Promise<number> {
@@ -26,16 +26,16 @@ export default class MasterChef {
       this.service.provider,
       MasterChefAbi
     );
-    masterChefMultiCaller.call('pendingBeets', this.address, 'pendingBeets', [
+    masterChefMultiCaller.call('pendingEmbr', this.address, 'pendingEmbr', [
       id,
       getAddress(user)
     ]);
     result = await masterChefMultiCaller.execute(result);
 
-    const pendingBeets = result.pendingBeets.toString();
+    const pendingEmbr = result.pendingEmbr.toString();
 
-    return pendingBeets
-      ? scale(new BigNumber(pendingBeets), -18).toNumber()
+    return pendingEmbr
+      ? scale(new BigNumber(pendingEmbr), -18).toNumber()
       : 0;
   }
 

@@ -31,10 +31,10 @@
                 Pending Rewards
               </div>
               <div class="text-xl font-medium truncate flex items-center">
-                {{ data.pendingBeets }}
+                {{ data.pendingEmbr }}
               </div>
               <div class="text-sm text-gray-500 font-medium mt-1 text-left">
-                {{ data.pendingBeetsValue }}
+                {{ data.pendingEmbrValue }}
               </div>
             </BalCard>
             <BalCard>
@@ -80,7 +80,7 @@
           </BalBtn>
           <BalBtn
             tag="a"
-            href="https://docs.beethovenx.io/"
+            href="https://docs.embr.io/"
             target="_blank"
             rel="noreferrer"
             color="white"
@@ -163,12 +163,12 @@ export default defineComponent({
           sumBy(farms, farm => farm.stake || 0),
           'usd'
         ),
-        pendingBeets:
-          numeral(sumBy(farms, farm => farm.pendingBeets)).format(
+        pendingEmbr:
+          numeral(sumBy(farms, farm => farm.pendingEmbr)).format(
             '0,0.[0000]'
-          ) + ' BEETS',
-        pendingBeetsValue: fNum(
-          sumBy(farms, farm => farm.pendingBeetsValue),
+          ) + ' EMBR',
+        pendingEmbrValue: fNum(
+          sumBy(farms, farm => farm.pendingEmbrValue),
           'usd'
         ),
         apr: fNum(averageApr, 'percent'),

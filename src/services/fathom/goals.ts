@@ -8,8 +8,8 @@ export class Goals {
   ClickNavConnectWallet = '';
   ClickNavTrade = '';
   ClickNavFarm = '';
-  ClickNavBeets = '';
-  ClickNavFreshBeets = '';
+  ClickNavEmbr = '';
+  ClickNavCharredEmbr = '';
   ClickNavInvest = '';
   ClickNavHome = '';
   ClickNavLogo = '';

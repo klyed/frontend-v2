@@ -24,7 +24,7 @@ export default class FarmSubgraphClient {
         masterChef {
           id
           totalAllocPoint
-          beetsPerBlock
+          embrPerBlock
         }
         rewarder {
           id
@@ -49,7 +49,7 @@ export default class FarmSubgraphClient {
         masterChef {
           id
           totalAllocPoint
-          beetsPerBlock
+          embrPerBlock
         }
         rewarder {
           id
@@ -70,7 +70,7 @@ export default class FarmSubgraphClient {
         id
         amount
         rewardDebt
-        beetsHarvested
+        embrHarvested
         pool {
           id
         }
@@ -82,7 +82,7 @@ export default class FarmSubgraphClient {
 
     return data.user
       ? data.user
-      : { amount: 0, rewardDebt: 0, beetsHarvested: 0 };
+      : { amount: 0, rewardDebt: 0, embrHarvested: 0 };
   }
 
   public async getUserDataForAllFarms(userAddress: string) {
@@ -92,7 +92,7 @@ export default class FarmSubgraphClient {
         id
         amount
         rewardDebt
-        beetsHarvested
+        embrHarvested
         pool {
           id
         }

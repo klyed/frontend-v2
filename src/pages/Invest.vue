@@ -6,7 +6,7 @@
         <BalAlert
           v-if="hasUnstakedBpt"
           title="You have unstaked BPT in your wallet"
-          description="If you deposit your BPT into the farm, you will earn additional rewards paid out in BEETS."
+          description="If you deposit your BPT into the farm, you will earn additional rewards paid out in EMBR."
           type="warning"
           size="sm"
           class=""
@@ -88,7 +88,7 @@ import usePoolFilters from '@/composables/pools/usePoolFilters';
 import { masterChefContractsService } from '@/services/farm/master-chef-contracts.service';
 import BalBtn from '@/components/_global/BalBtn/BalBtn.vue';
 import BalAlert from '@/components/_global/BalAlert/BalAlert.vue';
-import useBeethovenxConfig from '@/composables/useBeethovenxConfig';
+import useEmbrConfig from '@/composables/useEmbrConfig';
 
 export default defineComponent({
   components: {
@@ -102,7 +102,7 @@ export default defineComponent({
     // COMPOSABLES
     const router = useRouter();
     const { isWalletReady, isV1Supported } = useWeb3();
-    const { beethovenxConfig } = useBeethovenxConfig();
+    const { embrConfig } = useEmbrConfig();
     const {
       selectedTokens,
       addSelectedToken,
@@ -124,7 +124,7 @@ export default defineComponent({
     //TODO: this will break down once pagination starts happening
     const communityPools = computed(() => {
       return poolsWithFarms.value?.filter(
-        pool => !beethovenxConfig.value.incentivizedPools.includes(pool.id)
+        pool => !embrConfig.value.incentivizedPools.includes(pool.id)
       );
     });
 
@@ -135,11 +135,11 @@ export default defineComponent({
             return (
               selectedTokens.value.every((selectedToken: string) =>
                 pool.tokenAddresses.includes(selectedToken)
-              ) && beethovenxConfig.value.incentivizedPools.includes(pool.id)
+              ) && embrConfig.value.incentivizedPools.includes(pool.id)
             );
           })
         : poolsWithFarms?.value.filter(pool =>
-            beethovenxConfig.value.incentivizedPools.includes(pool.id)
+            embrConfig.value.incentivizedPools.includes(pool.id)
           );
     });
 
@@ -153,7 +153,7 @@ export default defineComponent({
       userPools.value.find(pool => pool.farm && parseFloat(pool.shares) > 0)
     );
 
-    masterChefContractsService.beethovenxToken.getCirculatingSupply();
+    masterChefContractsService.embrToken.getCirculatingSupply();
 
     function goToPoolCreate() {
       router.push({ name: 'pool-create' });

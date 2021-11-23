@@ -117,7 +117,7 @@ export default defineComponent({
         width: 150
       },
       {
-        name: 'BEETS Price',
+        name: 'EMBR Price',
         id: 'price',
         accessor: 'price',
         sortKey: 'price',

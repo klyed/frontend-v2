@@ -17,8 +17,8 @@ export default function useFarmUserQuery(
   const { account, isWalletReady, appNetworkConfig } = useWeb3();
   const { appLoading } = useApp();
   const protocolDataQuery = useProtocolDataQuery();
-  const beetsPrice = computed(
-    () => protocolDataQuery.data?.value?.beetsPrice || 0
+  const embrPrice = computed(
+    () => protocolDataQuery.data?.value?.embrPrice || 0
   );
   const { priceFor, dynamicDataLoading, loading } = useTokens();
 
@@ -38,7 +38,7 @@ export default function useFarmUserQuery(
         farmId,
         account.value
       );
-      const pendingBeets = await masterChefContractsService.masterChef.getPendingBeetsForFarm(
+      const pendingEmbr = await masterChefContractsService.masterChef.getPendingEmbrForFarm(
         farmId,
         account.value
       );
@@ -52,8 +52,8 @@ export default function useFarmUserQuery(
 
       return {
         ...userData,
-        pendingBeets,
-        pendingBeetsValue: pendingBeets * beetsPrice.value,
+        pendingEmbr,
+        pendingEmbrValue: pendingEmbr * embrPrice.value,
         pendingRewardToken,
         pendingRewardTokenValue: hndPrice * pendingRewardToken
       };

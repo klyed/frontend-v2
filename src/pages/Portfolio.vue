@@ -100,7 +100,7 @@ import PortfolioHeader from '@/components/pages/portfolio/PortfolioHeader.vue';
 import { orderBy, sum } from 'lodash';
 import useNumbers from '@/composables/useNumbers';
 import PortfolioPoolsStatCards from '@/components/pages/portfolio/PortfolioPoolsStatCards.vue';
-import usePortfolio from '@/composables/beethovenx/usePortfolio';
+import usePortfolio from '@/composables/embr/usePortfolio';
 
 export default defineComponent({
   components: {

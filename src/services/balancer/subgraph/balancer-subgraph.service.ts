@@ -8,7 +8,7 @@ import Swaps from './entities/swaps';
 import TokenPrices from './entities/tokenPrices';
 import Balancers from '@/services/balancer/subgraph/entities/balancers';
 
-const NETWORK = process.env.VUE_APP_NETWORK || '250';
+const NETWORK = process.env.VUE_APP_NETWORK || '43113';
 
 export default class BalancerSubgraphService {
   pools: Pools;
