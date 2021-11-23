@@ -45,7 +45,7 @@
             class="mx-auto"
           />
         </a>
-        <a href="https://github.com/embrfinanace">
+        <a href="https://github.com/embrfinance">
           <img
             src="~@/assets/images/github-logo.png"
             width="40"
