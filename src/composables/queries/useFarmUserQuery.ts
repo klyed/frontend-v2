@@ -43,19 +43,10 @@ export default function useFarmUserQuery(
         account.value
       );
 
-      const pendingRewardToken = await masterChefContractsService.hndRewarder.getPendingReward(
-        farmId,
-        account.value
-      );
-
-      const hndPrice = priceFor(appNetworkConfig.addresses.hnd);
-
       return {
         ...userData,
         pendingEmbr,
-        pendingEmbrValue: pendingEmbr * embrPrice.value,
-        pendingRewardToken,
-        pendingRewardTokenValue: hndPrice * pendingRewardToken
+        pendingEmbrValue: pendingEmbr * embrPrice.value
       };
     } catch (e) {
       console.log('ERROR', e);

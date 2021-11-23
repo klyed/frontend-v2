@@ -119,11 +119,6 @@ export interface Farm {
     totalAllocPoint: number;
     embrPerBlock: string;
   };
-  rewarder: {
-    id: string;
-    rewardToken: string;
-    rewardPerSecond: string;
-  };
 }
 
 export interface FarmUser {
@@ -136,8 +131,6 @@ export interface FarmUser {
   pool: {
     id: string;
   };
-  pendingRewardToken: number;
-  pendingRewardTokenValue: number;
 }
 
 export interface DecoratedFarm extends Farm {
@@ -148,9 +141,6 @@ export interface DecoratedFarm extends Farm {
   pendingEmbrValue: number;
   apr: number;
   share: number;
-
-  pendingRewardToken: number;
-  pendingRewardTokenValue: number;
 }
 
 export interface DecoratedPoolWithFarm extends DecoratedPool {

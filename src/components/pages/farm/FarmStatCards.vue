@@ -19,16 +19,10 @@
         <div class="text-xl font-medium truncate flex items-center">
           {{ fNum(pool.farm.pendingEmbr, 'token_fixed') }} EMBR
         </div>
-        <div
-          v-if="pool.farm.pendingRewardToken > 0"
-          class="text-xl font-medium truncate flex items-center"
-        >
-          {{ fNum(pool.farm.pendingRewardToken, 'token_fixed') }} HND
-        </div>
         <div class="truncate flex items-center pb-8">
           {{
             fNum(
-              pool.farm.pendingEmbrValue + pool.farm.pendingRewardTokenValue,
+              pool.farm.pendingEmbrValue,
               'usd'
             )
           }}
@@ -39,7 +33,7 @@
           block
           color="gradient"
           :disabled="
-            pool.farm.pendingEmbr <= 0 && pool.farm.pendingRewardToken <= 0
+            pool.farm.pendingEmbr <= 0
           "
           :loading="harvesting"
           @click.prevent="harvestRewards"
