@@ -98,10 +98,7 @@
 import { computed, defineComponent, PropType } from 'vue';
 import numeral from 'numeral';
 import BalCard from '@/components/_global/BalCard/BalCard.vue';
-import {
-  UserPoolData,
-  UserTokenData
-} from '@/services/embr/embr-types';
+import { UserPoolData, UserTokenData } from '@/services/embr/embr-types';
 import { orderBy } from 'lodash';
 import useNumbers from '@/composables/useNumbers';
 

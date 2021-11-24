@@ -164,9 +164,8 @@ export default defineComponent({
           'usd'
         ),
         pendingEmbr:
-          numeral(sumBy(farms, farm => farm.pendingEmbr)).format(
-            '0,0.[0000]'
-          ) + ' EMBR',
+          numeral(sumBy(farms, farm => farm.pendingEmbr)).format('0,0.[0000]') +
+          ' EMBR',
         pendingEmbrValue: fNum(
           sumBy(farms, farm => farm.pendingEmbrValue),
           'usd'

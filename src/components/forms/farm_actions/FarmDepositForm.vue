@@ -46,7 +46,7 @@
       <template v-else>
         <BalBtn
           v-if="approvalRequired"
-          label="Approve BPT"
+          label="Approve EPT"
           :loading="approving"
           :loading-label="$t('approving')"
           :disabled="!validInput || parseFloat(amount) === 0 || amount === ''"
@@ -63,7 +63,7 @@
             block
             @click="trackGoal(Goals.ClickFarmDeposit)"
           >
-            Deposit BPT
+            Deposit EPT
           </BalBtn>
         </template>
       </template>

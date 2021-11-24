@@ -84,7 +84,7 @@ const config: Record<string, Config> = {
   //'42': kovan,
   '4': rinkeby,
   '250': fantom,
-  '43113': fuji,
+  '43113': fuji
   //'137': polygon,
   //'12345': test,
   //'43113': fuji,

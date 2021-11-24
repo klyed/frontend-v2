@@ -16,6 +16,11 @@
   "blockSubgraph": "https://api.thegraph.com/subgraphs/name/embrfinance/fuji-blocks",
   "poolsUrlV1": "",
   "poolsUrlV2": "",
+  "backendUrl": "https://graph.embr.finance/graphql",
+  "etherscan": {
+    "apiKey": "",
+    "apiUrl": "https://api-testnet.snowtrace.io/api"
+  },
   "nativeAsset": {
     "name": "Avalanche",
     "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
@@ -66,5 +71,18 @@
       "type": "2",
       "name": "weightedPool"
     }
-  }
+  },
+  "lbp": {
+    "poolId": "",
+    "tokenAddress": "0xe7a282dA986F01dE6677250C90cE22A819CE9a9d",
+    "tokenSymbol": "EMBR",
+    "startingAmount": 500000,
+    "usdcAddress": "0xfb8fa9f5f0bd47591ba6f7c75fe519e3e8fde429",
+    "startTime": "2021-24-18T06:18:00+0000",
+    "endTime": "2021-24-19T08:18:00+0000",
+    "weightStep":  0.00625,
+    "timeStep": 300
+  },
+  "tokenListSanityUrl": "https://raw.githubusercontent.com/l0rdicon/offical-token-lists/main/tokens.fuji.json",
+  "configSanityUrl": ""
 }

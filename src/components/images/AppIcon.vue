@@ -1,11 +1,11 @@
 <template>
   <img
     v-if="darkMode"
-    src="~@/assets/images/logo.svg"
-    width="200"
+    src="~@/assets/images/embrlong.png"
+    width="160"
     class="mr-2 -ml-2"
   />
-  <img v-else src="~@/assets/images/logo.svg" width="200" class="mr-2 -ml-2" />
+  <img v-else src="~@/assets/images/embrlong.png" width="160" class="mr-2 -ml-2" />
 </template>
 
 <script lang="ts">

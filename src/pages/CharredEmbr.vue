@@ -22,16 +22,13 @@
                 <div>
                   <button
                     style="border: 1px solid black; margin-bottom: 20px"
-                    :onclick="enterFembr"
+                    :onclick="enterCembr"
                   >
                     enter with 100
                   </button>
                 </div>
                 <div>
-                  <button
-                    style="border: 1px solid black"
-                    :onclick="leaveFembr"
-                  >
+                  <button style="border: 1px solid black" :onclick="leaveCembr">
                     leave with 100
                   </button>
                 </div>
@@ -105,20 +102,20 @@ export default defineComponent({
       console.log('approved 100');
     }
 
-    async function enterFembr() {
+    async function enterCembr() {
       await enter(fp(100));
       console.log('entered with 100 bpt');
     }
 
-    async function leaveFembr() {
+    async function leaveCembr() {
       await leave(fp(100));
       console.log('left with 100 bpt');
     }
 
     return {
       fNum,
-      enterFembr,
-      leaveFembr,
+      enterCembr,
+      leaveCembr,
       approve100,
       currentExchangeRate,
       currentExchangeAmount,

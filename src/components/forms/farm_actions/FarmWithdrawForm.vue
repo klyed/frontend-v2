@@ -53,7 +53,7 @@
           block
           @click="trackGoal(Goals.ClickFarmWithdraw)"
         >
-          Withdraw BPT
+          Withdraw EPT
         </BalBtn>
       </template>
     </div>

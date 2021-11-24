@@ -124,13 +124,9 @@ export default defineComponent({
           'usd'
         ),
         pendingEmbr:
-          numeral(sumBy(farms, farm => farm.pendingEmbr)).format(
-            '0,0.[0000]'
-          ) + ' EMBR',
-        pendingRewardValue: fNum(
-          pendingEmbrValue,
-          'usd'
-        ),
+          numeral(sumBy(farms, farm => farm.pendingEmbr)).format('0,0.[0000]') +
+          ' EMBR',
+        pendingRewardValue: fNum(pendingEmbrValue, 'usd'),
         apr: fNum(averageApr, 'percent'),
         dailyApr: fNum(averageApr / 365, 'percent')
       };

@@ -62,8 +62,7 @@ export function calculateApr(
   const farmEmbrPerYear =
     (farm.allocPoint / farm.masterChef.totalAllocPoint) * embrPerYear;
 
-  const valuePerYear =
-    embrPrice * farmEmbrPerYear;
+  const valuePerYear = embrPrice * farmEmbrPerYear;
 
   return valuePerYear / tvl;
 }
@@ -95,12 +94,7 @@ export function decorateFarm(
   farmUser?: FarmUser
 ): DecoratedFarm {
   const tvl = calculateTvl(farm, pool);
-  const apr = calculateApr(
-    farm,
-    pool,
-    blocksPerYear,
-    embrPrice
-  );
+  const apr = calculateApr(farm, pool, blocksPerYear, embrPrice);
   const userShare = new BigNumber(farmUser?.amount || 0)
     .div(farm.slpBalance)
     .toNumber();

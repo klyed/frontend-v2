@@ -20,21 +20,14 @@
           {{ fNum(pool.farm.pendingEmbr, 'token_fixed') }} EMBR
         </div>
         <div class="truncate flex items-center pb-8">
-          {{
-            fNum(
-              pool.farm.pendingEmbrValue,
-              'usd'
-            )
-          }}
+          {{ fNum(pool.farm.pendingEmbrValue, 'usd') }}
         </div>
 
         <BalBtn
           label="Harvest"
           block
           color="gradient"
-          :disabled="
-            pool.farm.pendingEmbr <= 0
-          "
+          :disabled="pool.farm.pendingEmbr <= 0"
           :loading="harvesting"
           @click.prevent="harvestRewards"
         />

@@ -195,7 +195,7 @@ export default defineComponent({
         const tx = await poolCreatorService.value.createWeightedPool(
           getProvider(),
           props.poolName,
-          `BPT-${poolSymbol}`,
+          `EPT-${poolSymbol}`,
           poolOwner,
           swapFeePercentage,
           poolTokens
@@ -283,7 +283,7 @@ export default defineComponent({
         await poolCreatorService.value.verifyPool(
           getProvider(),
           poolName,
-          `BPT-${poolSymbol}`,
+          `EPT-${poolSymbol}`,
           poolOwner,
           swapFeePercentage,
           poolTokens,

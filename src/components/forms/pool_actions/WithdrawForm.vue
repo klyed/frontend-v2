@@ -180,9 +180,9 @@
           {{ missingPrices || total.length > 15 ? '' : total }}
         </BalBtn>
         <BalAlert
-          v-if="hasStakedBpt"
-          title="You have BPT staked in the farm"
-          description="To withdraw your funds, you need to first unstake your BPT from the farm."
+          v-if="hasStakedEpt"
+          title="You have EPT staked in the farm"
+          description="To withdraw your funds, you need to first unstake your EPT from the farm."
           type="warning"
           size="sm"
           class="mt-4"
@@ -250,7 +250,7 @@ export default defineComponent({
   props: {
     pool: { type: Object as PropType<FullPool>, required: true },
     missingPrices: { type: Boolean, default: false },
-    hasStakedBpt: { type: Boolean }
+    hasStakedEpt: { type: Boolean }
   },
 
   setup(props: { pool: FullPool }, { emit }) {
@@ -479,10 +479,10 @@ export default defineComponent({
       ];
     }
 
-    function setPropMax(ignoreBptCheck = false) {
+    function setPropMax(ignoreEptCheck = false) {
       if (
         !isWalletReady.value ||
-        (!ignoreBptCheck && Number(bptBalance.value) === 0)
+        (!ignoreEptCheck && Number(bptBalance.value) === 0)
       )
         return;
       const { send, receive } = poolCalculator.propAmountsGiven(
@@ -524,11 +524,11 @@ export default defineComponent({
       });
     }
 
-    // Legacy function for sense check against JS calculation of BPT in
+    // Legacy function for sense check against JS calculation of EPT in
     // Left here so numbers can be debugged in conosle
     // Talk to Fernando to see if still needed
-    async function calcBptIn() {
-      const { bptIn: queryBptIn } = await poolExchange.value.queryExit(
+    async function calcEptIn() {
+      const { bptIn: queryEptIn } = await poolExchange.value.queryExit(
         getProvider(),
         account.value,
         fullAmounts.value,
@@ -538,7 +538,7 @@ export default defineComponent({
       );
       console.log(
         'bptIn (queryExit)',
-        formatUnits(queryBptIn.toString(), props.pool.onchain.decimals)
+        formatUnits(queryEptIn.toString(), props.pool.onchain.decimals)
       );
       console.log('bptIn (JS)', bptIn.value);
     }
@@ -547,7 +547,7 @@ export default defineComponent({
       if (!data.withdrawForm.validate()) return;
       try {
         data.loading = true;
-        await calcBptIn();
+        await calcEptIn();
         const tx = await poolExchange.value.exit(
           getProvider(),
           account.value,

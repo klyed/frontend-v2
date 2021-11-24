@@ -11,10 +11,7 @@
     <div v-if="embrPrice > 0" class="text-red-500 font-semibold text-right">
       EMBR: {{ fNum(embrPrice, 'usd') }}
     </div>
-    <div
-      v-if="embrPrice > 0 && marketCap > 0"
-      class="font-semibold text-right"
-    >
+    <div v-if="embrPrice > 0 && marketCap > 0" class="font-semibold text-right">
       Market Cap: ${{ fNum(marketCap, 'usd_lg') }}
     </div>
     <div

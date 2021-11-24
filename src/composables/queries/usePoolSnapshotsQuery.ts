@@ -5,10 +5,7 @@ import QUERY_KEYS from '@/constants/queryKeys';
 import { balancerSubgraphService } from '@/services/balancer/subgraph/balancer-subgraph.service';
 import { PoolSnapshots } from '@/services/balancer/subgraph/types';
 import usePoolQuery from './usePoolQuery';
-import {
-  embrService,
-  HistoricalPrices
-} from '@/services/embr/embr.service';
+import { embrService, HistoricalPrices } from '@/services/embr/embr.service';
 
 /**
  * TYPES

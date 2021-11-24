@@ -1,4 +1,5 @@
 <template>
+ <div>
   <div id="modal" />
   <div id="app" class="flex flex-col">
     <AppNav />
@@ -13,7 +14,7 @@
     <AppFooterNav v-if="upToLargeBreakpoint" />
 
     <div class="flex flex-1 items-end relative">
-      <img src="~@/assets/images/community-image.png" />
+      <img src="~@/assets/images/embry.png"  width="256" class="mx-auto"/>
       <div
         class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-center pb-6 ml-8"
       >
@@ -71,6 +72,7 @@
     />
     <Notifications />
   </div>
+</div>
 </template>
 
 <script lang="ts">

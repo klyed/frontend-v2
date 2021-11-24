@@ -26,10 +26,10 @@ input {
 
 #app {
   background-image: linear-gradient(to bottom,
-    #08061F,
-    #1B1464,
-    #00395E,
-    #00544E,
+    #000000,
+    #530709,
+    #530709,
+    #290304,
     #000000
   );
   /*@apply bg-white dark:bg-gray-900;*/

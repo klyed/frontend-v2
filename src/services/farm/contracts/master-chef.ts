@@ -34,9 +34,7 @@ export default class MasterChef {
 
     const pendingEmbr = result.pendingEmbr.toString();
 
-    return pendingEmbr
-      ? scale(new BigNumber(pendingEmbr), -18).toNumber()
-      : 0;
+    return pendingEmbr ? scale(new BigNumber(pendingEmbr), -18).toNumber() : 0;
   }
 
   public async withdrawAndHarvest(

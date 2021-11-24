@@ -2,10 +2,7 @@ import { reactive, ref, Ref } from 'vue';
 import { useQuery } from 'vue-query';
 import { UseQueryOptions } from 'react-query/types';
 import QUERY_KEYS from '@/constants/queryKeys';
-import {
-  embrService,
-  TokenPrices
-} from '@/services/embr/embr.service';
+import { embrService, TokenPrices } from '@/services/embr/embr.service';
 
 /**
  * Fetches token prices for all provided addresses.

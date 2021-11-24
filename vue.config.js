@@ -25,6 +25,9 @@ module.exports = {
       openAnalyzer: false
     }
   },
+  devServer: {
+    disableHostCheck: true
+  },
   configureWebpack: {
     plugins,
     devServer: {

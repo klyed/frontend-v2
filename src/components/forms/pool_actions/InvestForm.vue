@@ -262,9 +262,9 @@
             {{ missingPrices || total.length > 15 ? '' : total }}
           </BalBtn>
           <BalAlert
-            v-if="hasUnstakedBpt"
-            title="You have unstaked BPT in your wallet"
-            description="If you deposit your BPT into the farm, you will earn additional rewards paid out in EMBR."
+            v-if="hasUnstakedEpt"
+            title="You have unstaked EPT in your wallet"
+            description="If you deposit your EPT into the farm, you will earn additional rewards paid out in EMBR."
             type="warning"
             size="sm"
             class="mt-4"
@@ -348,7 +348,7 @@ export default defineComponent({
   props: {
     pool: { type: Object as PropType<FullPool>, required: true },
     missingPrices: { type: Boolean, default: false },
-    hasUnstakedBpt: { type: Boolean, default: false }
+    hasUnstakedEpt: { type: Boolean, default: false }
   },
 
   setup(props: { pool: FullPool }, { emit }) {
@@ -491,14 +491,14 @@ export default defineComponent({
       };
     });
 
-    const minBptOut = computed(() => {
-      let bptOut = poolCalculator
+    const minEptOut = computed(() => {
+      let eptOut = poolCalculator
         .exactTokensInForBPTOut(fullAmounts.value)
         .toString();
-      bptOut = formatUnits(bptOut, props.pool.onchain.decimals);
-      console.log(bptOut, `TS EVM _exactTokensInForBPTOut`);
+      eptOut = formatUnits(eptOut, props.pool.onchain.decimals);
+      console.log(eptOut, `TS EVM _exactTokensInForBPTOut`);
 
-      return minusSlippage(bptOut, props.pool.onchain.decimals);
+      return minusSlippage(eptOut, props.pool.onchain.decimals);
     });
 
     const nativeAsset = computed(() => appNetworkConfig.nativeAsset.symbol);
@@ -578,21 +578,21 @@ export default defineComponent({
       data.amounts = send;
     }
 
-    // Legacy function for sense check against JS calculation of BPT out
+    // Legacy function for sense check against JS calculation of EPT out
     // Left here so numbers can be debugged in conosle
     // Talk to Fernando to see if still needed
-    async function calcMinBptOut(): Promise<void> {
-      let { bptOut } = await poolExchange.value.queryJoin(
+    async function calcMinEptOut(): Promise<void> {
+      let { eptOut } = await poolExchange.value.queryJoin(
         getProvider(),
         account.value,
         fullAmounts.value
       );
-      bptOut = formatUnits(bptOut.toString(), props.pool.onchain.decimals);
-      console.log(bptOut, 'bptOut (queryJoin)');
-      console.log(minBptOut.value, 'bptOut (JS) minusSlippage');
+      eptOut = formatUnits(eptOut.toString(), props.pool.onchain.decimals);
+      console.log(eptOut, 'eptOut (queryJoin)');
+      console.log(minEptOut.value, 'eptOut (JS) minusSlippage');
       console.log(
-        minusSlippage(bptOut, props.pool.onchain.decimals),
-        'bptOut (queryJoin) minusSlippage'
+        minusSlippage(eptOut, props.pool.onchain.decimals),
+        'eptOut (queryJoin) minusSlippage'
       );
     }
 
@@ -600,12 +600,12 @@ export default defineComponent({
       if (!data.investForm.validate()) return;
       try {
         data.loading = true;
-        await calcMinBptOut();
+        await calcMinEptOut();
         const tx = await poolExchange.value.join(
           getProvider(),
           account.value,
           fullAmounts.value,
-          minBptOut.value
+          minEptOut.value
         );
         console.log('Receipt', tx);
 
